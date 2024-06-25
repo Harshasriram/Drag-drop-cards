@@ -1,0 +1,10 @@
+{
+  "name": "drag-drop-poc-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/drag-drop-poc-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["drag-drop-poc"],
+  "// targets": "to see all targets run: nx show project drag-drop-poc-e2e --web",
+  "targets": {}
+}
