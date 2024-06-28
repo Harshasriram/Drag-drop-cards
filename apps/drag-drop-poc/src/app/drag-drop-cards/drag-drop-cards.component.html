@@ -1,0 +1,35 @@
+    
+    <!-- UI without using library compoenent and jsut plain HTML -->
+    <!-- <div class="cards-container">
+    <div *ngFor="let card of cards; let i = index"
+         class="card card-size-{{card.size}}"
+         draggable="true"
+         (dragstart)="onDragStart($event, i)"
+         (drop)="onDrop($event, i)"
+         (dragover)="onDragOver($event)">
+      <ng-container [ngSwitch]="card.type">
+        <app-event-card *ngSwitchCase="'event'" [content]="card.content"></app-event-card>
+        <app-analog-card *ngSwitchCase="'analog'" [content]="card.content"></app-analog-card>
+        <app-digital-card *ngSwitchCase="'digital'" [content]="card.content"></app-digital-card>
+        <app-journal-card *ngSwitchCase="'journal'" [content]="card.content"></app-journal-card>
+        <app-report-card *ngSwitchCase="'report'" [content]="card.content"></app-report-card>
+        <app-widget-card *ngSwitchCase="'widget'" [content]="card.content"></app-widget-card>
+      </ng-container>
+    </div>
+  </div> -->
+  
+  <!-- devextreme library sortable compoement UI using dxsortable modal -->
+    <dx-sortable class="cards-container" [data]="cards" itemSelector=".card" (onReorder)="onReorder($event)">
+        @for (card of cards; track $index) {
+            <div [ngClass]="{'card': true, 'double-card': card.size === 2}">
+                @switch (card.type) {
+                    @case ('event') { <app-event-card [content]="card.content"></app-event-card> }
+                    @case ('analog') { <app-analog-card [content]="card.content"></app-analog-card> }
+                    @case ('digital') { <app-digital-card [content]="card.content"></app-digital-card> }
+                    @case ('journal') { <app-journal-card [content]="card.content"></app-journal-card> }
+                    @case ('report') { <app-report-card [content]="card.content"></app-report-card> }
+                    @case ('widget') { <app-widget-card [content]="card.content"></app-widget-card> }
+                }
+            </div>
+        }
+    </dx-sortable>

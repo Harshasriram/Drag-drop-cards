@@ -18,10 +18,14 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/drag-drop-poc/public"
+            "input": "apps/drag-drop-poc/public",
+            "output": "public"
           }
         ],
-        "styles": ["apps/drag-drop-poc/src/styles.css"],
+        "styles": [
+          "node_modules/devextreme/dist/css/dx.light.css",
+          "apps/drag-drop-poc/src/styles.css"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -58,7 +62,10 @@
           "buildTarget": "drag-drop-poc:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 5000
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

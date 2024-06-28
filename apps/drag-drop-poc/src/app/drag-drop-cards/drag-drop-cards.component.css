@@ -1,0 +1,26 @@
+ 
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .card {
+    width: 30vw;
+    border: 1px solid #ccc;
+    border-radius: 1.2rem;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 20vw;
+    margin: 20px;
+  }
+  
+  .double-card {
+    width: 62vw; /* Adjust width to span two spaces */
+  }
+  
+  .dx-sortable-placeholder {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px dashed #ccc;
+  }
+  
