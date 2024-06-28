@@ -6,9 +6,9 @@
 
 ## Drag and Drop
 This application was built using: 
-NX workspace 
-Angular version 17.3.0 
-Node version 20.13.1
+NX version v19.3.1, 
+Angular version v17.3.0, 
+Node version v20.13.1
 
 
 ## Integrate with editors
