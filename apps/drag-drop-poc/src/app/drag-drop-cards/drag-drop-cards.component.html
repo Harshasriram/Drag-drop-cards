@@ -1,6 +1,6 @@
     
     <!-- UI without using library compoenent and jsut plain HTML -->
-    <!-- <div class="cards-container">
+    <div class="cards-container">
     <div *ngFor="let card of cards; let i = index"
          class="card card-size-{{card.size}}"
          draggable="true"
@@ -16,20 +16,4 @@
         <app-widget-card *ngSwitchCase="'widget'" [content]="card.content"></app-widget-card>
       </ng-container>
     </div>
-  </div> -->
-  
-  <!-- devextreme library sortable compoement UI using dxsortable modal -->
-    <dx-sortable class="cards-container" [data]="cards" itemSelector=".card" (onReorder)="onReorder($event)">
-        @for (card of cards; track $index) {
-            <div [ngClass]="{'card': true, 'double-card': card.size === 2}">
-                @switch (card.type) {
-                    @case ('event') { <app-event-card [content]="card.content"></app-event-card> }
-                    @case ('analog') { <app-analog-card [content]="card.content"></app-analog-card> }
-                    @case ('digital') { <app-digital-card [content]="card.content"></app-digital-card> }
-                    @case ('journal') { <app-journal-card [content]="card.content"></app-journal-card> }
-                    @case ('report') { <app-report-card [content]="card.content"></app-report-card> }
-                    @case ('widget') { <app-widget-card [content]="card.content"></app-widget-card> }
-                }
-            </div>
-        }
-    </dx-sortable>
+  </div>

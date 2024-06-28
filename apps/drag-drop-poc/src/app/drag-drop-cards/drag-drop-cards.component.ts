@@ -6,12 +6,11 @@ import { EventCardComponent } from '../event-card/event-card.component';
 import { JournalCardComponent } from '../journal-card/journal-card.component';
 import { WidgetCardComponent } from '../widget-card/widget-card.component';
 import { ReportCardComponent } from '../report-card/report-card.component';
-import { DxSortableModule } from 'devextreme-angular';
 
 @Component({
   selector: 'app-drag-drop-cards',
   standalone: true,
-  imports: [CommonModule, AnalogCardComponent, DigitalCardComponent, EventCardComponent, JournalCardComponent, WidgetCardComponent, ReportCardComponent, DxSortableModule],
+  imports: [CommonModule, AnalogCardComponent, DigitalCardComponent, EventCardComponent, JournalCardComponent, WidgetCardComponent, ReportCardComponent],
   templateUrl: './drag-drop-cards.component.html',
   styleUrl: './drag-drop-cards.component.css',
 })
@@ -27,35 +26,26 @@ export class DragDropCardsComponent {
 
 
   // Logic for feature using just drag and drop api of HTML5 and javascript
-  // onDragStart(event: DragEvent, index: number) {
-  //   event.dataTransfer?.setData('text/plain', index.toString());
-  // }
+  onDragStart(event: DragEvent, index: number) {
+    event.dataTransfer?.setData('text/plain', index.toString());
+  }
 
-  // onDrop(event: DragEvent, index: number) {
-  //   const draggedIndex = event.dataTransfer?.getData('text');
-  //   if (draggedIndex !== null) {
-  //     this.moveCard(parseInt(draggedIndex as any), index);
-  //   }
-  //   event.preventDefault();
-  // }
+  onDrop(event: DragEvent, index: number) {
+    const draggedIndex = event.dataTransfer?.getData('text');
+    if (draggedIndex !== null) {
+      this.moveCard(parseInt(draggedIndex as any), index);
+    }
+    event.preventDefault();
+  }
 
-  // onDragOver(event: DragEvent) {
-  //   event.preventDefault();
-  // }
+  onDragOver(event: DragEvent) {
+    event.preventDefault();
+  }
 
-  // moveCard(fromIndex: number, toIndex: number) {
-  //   const movedCard = this.cards.splice(fromIndex, 1)[0];
-  //   this.cards.splice(toIndex, 0, movedCard);
-    
-  //   this.rearrangeCards();
-  // }
-
-  onReorder(e:any) {
-    const toIndex = e.toIndex;
-    const fromIndex = e.fromIndex;
-
+  moveCard(fromIndex: number, toIndex: number) {
     const movedCard = this.cards.splice(fromIndex, 1)[0];
     this.cards.splice(toIndex, 0, movedCard);
+    
     this.rearrangeCards();
   }
 
